@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MyTokdisMovieApp</string>
+
+    <string name="poster">Poster</string>
+    <string name="title">Venom</string>
+    <string name="text_release">Friday, 10 January 2020</string>
+    <string name="star">Star</string>
+    <string name="vote_average">90</string>
+    <string name="strip">-</string>
+    <string name="kurbuk">(</string>
+    <string name="vote_count">24</string>
+    <string name="kurtup">)</string>
+
+    <string name="overview">Overview</string>
+    <string name="text_overview">Investigative journalist Eddie Brock attempts a comeback following a scandal, but accidentally becomes the host of Venom, a violent, super powerful alien symbiote. Soon, he must rely on his newfound powers to protect the world from a shadowy organization looking for a symbiote of their own.</string>
+    <string name="release">Release</string>
+
+</resources>

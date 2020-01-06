@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp">
+
+                <ImageView
+                    android:id="@+id/imagePoster"
+                    android:layout_width="160dp"
+                    android:layout_height="240dp"
+                    android:src="@drawable/venom"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/poster"/>
+
+                <TextView
+                    android:id="@+id/textTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="172dp"
+                    android:text="@string/title"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imagePoster"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="172dp" />
+
+                <TextView
+                    android:id="@+id/textRe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/release"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="12dp"
+                    android:textColor="@color/colorAccent"
+                    app:layout_constraintBottom_toTopOf="@+id/textRelease"
+                    app:layout_constraintLeft_toRightOf="@+id/imagePoster"
+                    android:layout_marginLeft="12dp" />
+
+                <TextView
+                    android:id="@+id/textRelease"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_release"
+                    android:layout_marginStart="172dp"
+                    android:layout_marginBottom="12dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorAccent"
+                    app:layout_constraintBottom_toTopOf="@+id/textOv"
+                    app:layout_constraintLeft_toRightOf="@+id/imagePoster"
+                    android:layout_marginLeft="12dp" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toRightOf="@+id/imagePoster"
+                    app:layout_constraintTop_toBottomOf="@+id/textTitle"
+                    android:layout_marginStart="12dp">
+
+                    <ImageView
+                        android:id="@+id/imageStar"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/star"
+                        android:src="@drawable/star"
+                        app:layout_constraintStart_toEndOf="@+id/imagePoster"
+                        app:layout_constraintTop_toBottomOf="@+id/textRe" />
+
+                    <TextView
+                        android:id="@+id/textVoteAverage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:text="@string/vote_average"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageStar"
+                        app:layout_constraintStart_toEndOf="@+id/imageStar"
+                        app:layout_constraintTop_toTopOf="@+id/imageStar" />
+
+                    <TextView
+                        android:id="@+id/textStrip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:text="@string/strip"
+                        android:textColor="@color/colorAccentDisable"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageStar"
+                        app:layout_constraintStart_toEndOf="@+id/textVoteAverage"
+                        app:layout_constraintTop_toTopOf="@+id/imageStar" />
+
+                    <TextView
+                        android:id="@+id/textKurbuk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:text="@string/kurbuk"
+                        android:textColor="@color/colorAccentDisable"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageStar"
+                        app:layout_constraintStart_toEndOf="@+id/textStrip"
+                        app:layout_constraintTop_toTopOf="@+id/imageStar" />
+
+                    <TextView
+                        android:id="@+id/textVoteCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:text="@string/vote_count"
+                        android:textColor="@color/colorAccentDisable"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageStar"
+                        app:layout_constraintStart_toEndOf="@+id/textKurbuk"
+                        app:layout_constraintTop_toTopOf="@+id/imageStar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:text="@string/kurtup"
+                        android:textColor="@color/colorAccentDisable"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageStar"
+                        app:layout_constraintStart_toEndOf="@+id/textVoteCount"
+                        app:layout_constraintTop_toTopOf="@+id/imageStar" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textOv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/overview"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="12dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagePoster" />
+
+                <TextView
+                    android:id="@+id/textOverview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_overview"
+                    android:textColor="@color/colorAccent"
+                    app:layout_constraintTop_toBottomOf="@+id/textOv"
+                    tools:layout_editor_absoluteX="12dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
+
