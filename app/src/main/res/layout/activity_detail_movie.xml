@@ -162,6 +162,28 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/textGe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/genre"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="12dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textOverview" />
+
+                <TextView
+                    android:id="@+id/textGenre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_genre"
+                    android:textColor="@color/colorAccent"
+                    app:layout_constraintTop_toBottomOf="@+id/textGe"
+                    tools:layout_editor_absoluteX="12dp" />
+
+
+                <TextView
                     android:id="@+id/textOv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -181,6 +203,36 @@
                     android:textColor="@color/colorAccent"
                     app:layout_constraintTop_toBottomOf="@+id/textOv"
                     tools:layout_editor_absoluteX="12dp" />
+
+                <TextView
+                    android:id="@+id/textCr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/similar"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="12dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textGenre" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:scrollbars="none"
+                    android:id="@+id/recyclerSimilar"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textCr"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBarSimilar"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:outlineAmbientShadowColor="@color/colorAccent"
+                    app:layout_constraintBottom_toBottomOf="@+id/recyclerSimilar"
+                    app:layout_constraintEnd_toEndOf="@+id/recyclerSimilar"
+                    app:layout_constraintStart_toStartOf="@+id/recyclerSimilar"
+                    app:layout_constraintTop_toTopOf="@+id/recyclerSimilar" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

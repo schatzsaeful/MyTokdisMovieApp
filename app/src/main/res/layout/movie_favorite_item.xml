@@ -154,16 +154,6 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textGenre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:visibility="invisible"
-                android:text="@string/text_genre"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
@@ -171,7 +161,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_margin="16dp"
-            android:src="@drawable/add_favorite"
+            android:src="@drawable/delete"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:contentDescription="@string/imagefavorite"

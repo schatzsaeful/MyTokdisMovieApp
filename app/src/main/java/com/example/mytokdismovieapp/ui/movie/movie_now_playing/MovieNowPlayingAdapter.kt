@@ -1,8 +1,8 @@
-package com.example.mytokdismovieapp.ui.movie
+package com.example.mytokdismovieapp.ui.movie.movie_now_playing
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,28 +12,29 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mytokdismovieapp.BuildConfig
 import com.example.mytokdismovieapp.R
+import com.example.mytokdismovieapp.data.source.remote.response.ResultsItemGenre
 import com.example.mytokdismovieapp.data.source.remote.response.ResultsItemMovie
-import com.example.mytokdismovieapp.ui.detail.DetailMovieActivity
+import com.example.mytokdismovieapp.ui.detail.DetailMovieNowPlayingActivity
 import com.example.mytokdismovieapp.utils.DateHelper
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MovieAdapter(private var mContext: Context, private var resultsItemMovie: MutableList<ResultsItemMovie>) : PagedListAdapter<ResultsItemMovie, MovieAdapter.MovieViewHolder>(DIFF_CALLBACK) {
+class MovieNowPlayingAdapter(private var resultsItemMovie: MutableList<ResultsItemMovie>, private val resultItemGenre: MutableList<ResultsItemGenre>, private val listener: (ResultsItemMovie) -> Unit) : PagedListAdapter<ResultsItemMovie, MovieNowPlayingAdapter.MovieViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        return MovieViewHolder(LayoutInflater.from(mContext).inflate(R.layout.movie_item, parent, false))
+        return MovieViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false))
     }
 
     override fun getItemCount(): Int = resultsItemMovie.size
 
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(resultsItemMovie[position])
+        holder.bind(resultsItemMovie[position], listener)
     }
 
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(resultMovie: ResultsItemMovie) {
+        fun bind(resultMovie: ResultsItemMovie, listener: (ResultsItemMovie) -> Unit) {
 
-            Glide.with(mContext)
+            Glide.with(itemView.context)
                 .load(BuildConfig.POSTER_URL + resultMovie.posterPath)
                 .placeholder(R.drawable.image)
                 .error(R.drawable.broken_image)
@@ -45,18 +46,29 @@ class MovieAdapter(private var mContext: Context, private var resultsItemMovie: 
             itemView.textVoteCount.text = resultMovie.voteCount.toString()
 
             itemView.setOnClickListener {
-                val intent = Intent(mContext, DetailMovieActivity::class.java)
-                intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, resultMovie)
-                mContext.startActivity(intent)
+                val intent = Intent(itemView.context, DetailMovieNowPlayingActivity::class.java)
+                intent.putExtra(DetailMovieNowPlayingActivity.EXTRA_MOVIE, resultMovie)
+                intent.putExtra(DetailMovieNowPlayingActivity.EXTRA_GENRE, resultMovie.genreIds?.let { getGenres(it) })
+                itemView.context.startActivity(intent)
 
+            }
+
+            itemView.imageFavorite.setOnClickListener {
+                listener(resultMovie)
             }
 
         }
     }
 
-    fun updateMovie(item: List<ResultsItemMovie>) {
+    fun updateMovie(movie: List<ResultsItemMovie>) {
         resultsItemMovie.clear()
-        resultsItemMovie.addAll(item)
+        resultsItemMovie.addAll(movie)
+        notifyDataSetChanged()
+    }
+
+    fun updateGenre(genre: List<ResultsItemGenre>) {
+        resultItemGenre.clear()
+        resultItemGenre.addAll(genre)
         notifyDataSetChanged()
     }
 
@@ -72,6 +84,20 @@ class MovieAdapter(private var mContext: Context, private var resultsItemMovie: 
                 return oldNote == newNote
             }
         }
+    }
+
+    private fun getGenres(genreIds: List<Int>): String? {
+        val movieGenres: MutableList<String?> = ArrayList()
+        for (genreId in genreIds) {
+            for (genre in resultItemGenre) {
+                if (genre.id == genreId) {
+                    movieGenres.add(genre.name)
+                    break
+                }
+            }
+        }
+
+        return TextUtils.join(", ", movieGenres)
     }
 
 }

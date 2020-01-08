@@ -1,4 +1,4 @@
-package com.example.mytokdismovieapp.ui.movie
+package com.example.mytokdismovieapp.ui.movie_upcoming
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso

@@ -3,26 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mytokdismovieapp">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:fullBackupContent="@xml/backup_descriptor">
-        <activity android:name=".ui.detail.DetailMovieActivity" />
-        <activity android:name=".ui.movie.MovieActivity">
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.detail.DetailMovieTopRatedActivity"></activity>
+        <activity android:name=".ui.detail.DetailMoviePopularActivity" />
+        <activity android:name=".ui.detail.DetailMovieNowPlayingActivity" />
+        <activity android:name=".ui.favorite.detail.DetailFavoriteMovieTopRatedActivity" />
+        <activity android:name=".ui.favorite.detail.DetailFavoriteMoviePopularActivity" />
+        <activity android:name=".ui.favorite.detail.DetailFavoriteMovieNowPlayingActivity" />
+        <activity android:name=".ui.favorite.detail.DetailFavoriteMovieUpcomingActivity" />
+        <activity android:name=".ui.favorite.FavoriteActivity" />
+        <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.detail.DetailMovieUpcomingActivity" />
     </application>
 
 </manifest>

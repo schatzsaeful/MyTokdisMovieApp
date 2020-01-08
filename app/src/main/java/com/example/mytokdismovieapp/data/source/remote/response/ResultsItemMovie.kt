@@ -35,6 +35,10 @@ data class ResultsItemMovie(
 
     @SerializedName("vote_count")
     @Expose
-    val voteCount: Int? = null
+    val voteCount: Int? = null,
+
+    @SerializedName("genre_ids")
+    @Expose
+    val genreIds: List<Int>? = null
 
 ) : Parcelable
