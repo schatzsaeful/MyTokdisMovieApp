@@ -3,10 +3,7 @@ package com.example.mytokdismovieapp.data.source.local.room
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import androidx.room.*
-import com.example.mytokdismovieapp.data.source.local.entity.MovieNowPlayingEntity
-import com.example.mytokdismovieapp.data.source.local.entity.MoviePopularEntity
-import com.example.mytokdismovieapp.data.source.local.entity.MovieTopRatedEntity
-import com.example.mytokdismovieapp.data.source.local.entity.MovieUpcomingEntity
+import com.example.mytokdismovieapp.data.source.local.entity.*
 
 @Dao
 interface MovieDao {

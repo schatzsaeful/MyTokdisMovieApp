@@ -1,0 +1,99 @@
+<RelativeLayout
+android:layout_width="match_parent"
+    android:layout_height="179dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imagePoster"
+            android:layout_width="119.5dp"
+            android:layout_height="179dp"
+            android:background="@color/greyPlaceholder"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_alignParentLeft="true"
+            android:contentDescription="@string/poster" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="start"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            android:background="@color/greyPlaceholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imagePoster"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textRelease"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="16sp"
+            android:layout_marginTop="@dimen/dimens_2dp"
+            android:background="@color/greyPlaceholder"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@+id/textTitle"
+            app:layout_constraintStart_toStartOf="@+id/textTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal"
+            android:background="@color/greyPlaceholder"
+            app:layout_constraintEnd_toEndOf="@+id/textRelease"
+            app:layout_constraintStart_toStartOf="@+id/textRelease"
+            app:layout_constraintTop_toBottomOf="@+id/textRelease">
+
+            <ImageView
+                android:id="@+id/imageStar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:tint="@color/greyPlaceholder"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/star"
+                android:src="@drawable/star"
+                app:layout_constraintStart_toEndOf="@+id/imagePoster"
+                app:layout_constraintTop_toBottomOf="@+id/textRe" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:visibility="invisible"
+            android:text="@string/text_genre"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageFavorite"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_margin="16dp"
+        android:tint="@color/greyPlaceholder"
+        android:src="@drawable/add_favorite"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="@string/imagefavorite"
+        android:layout_alignParentRight="true" />
+</RelativeLayout>

@@ -35,6 +35,9 @@ data class MovieNowPlayingEntity(
     var movieNowPlayingOverview: String? = null,
 
     @ColumnInfo(name = "movieNowPlayingGenre")
-    var movieNowPlayingGenre: String? = null
+    var movieNowPlayingGenre: String? = null,
+
+    @ColumnInfo(name = "IsFavorite")
+    var movieNowIsFavorite: Boolean? = null
 
 ) : Parcelable

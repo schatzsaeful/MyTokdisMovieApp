@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mytokdismovieapp">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.detail.DetailMovieTopRatedActivity"></activity>
+        <activity android:name=".ui.auth.AuthActivity" />
+        <activity android:name=".ui.detail.DetailMovieTopRatedActivity" />
         <activity android:name=".ui.detail.DetailMoviePopularActivity" />
         <activity android:name=".ui.detail.DetailMovieNowPlayingActivity" />
         <activity android:name=".ui.favorite.detail.DetailFavoriteMovieTopRatedActivity" />
@@ -31,6 +33,14 @@
         </activity>
         <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.detail.DetailMovieUpcomingActivity" />
+        <receiver
+            android:name=".utils.ConnectivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"
+                    tools:ignore="BatteryLife" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

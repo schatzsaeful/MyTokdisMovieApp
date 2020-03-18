@@ -14,14 +14,14 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <ProgressBar
+    <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/progressBarSimilar"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:outlineAmbientShadowColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerMovie"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerMovie"
-        app:layout_constraintStart_toStartOf="@+id/recyclerMovie"
-        app:layout_constraintTop_toTopOf="@+id/recyclerMovie"  />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/shimmer_detail_movie" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

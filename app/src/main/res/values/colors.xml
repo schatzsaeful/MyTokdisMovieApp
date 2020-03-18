@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#1976D2</color>
     <color name="colorAccent">#1990D2</color>
     <color name="colorAccentDisable">#cccccc</color>
+    <color name="greyUltraLight">#efefef</color>
+    <color name="greyPlaceholder">#dddddd</color>
 </resources>

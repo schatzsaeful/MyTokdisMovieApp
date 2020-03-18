@@ -12,14 +12,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/shimmer_detail_movie" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constrain_DetailMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:padding="12dp">
 
                 <ImageView
@@ -224,6 +235,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textCr"/>
 
+                <TextView
+                    android:id="@+id/text_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tidak Terdapat Data"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/recyclerSimilar"
+                    app:layout_constraintEnd_toEndOf="@+id/recyclerSimilar"
+                    app:layout_constraintStart_toStartOf="@+id/recyclerSimilar"
+                    app:layout_constraintTop_toTopOf="@+id/recyclerSimilar" />
+
                 <ProgressBar
                     android:id="@+id/progressBarSimilar"
                     android:layout_width="35dp"
@@ -236,7 +258,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
 

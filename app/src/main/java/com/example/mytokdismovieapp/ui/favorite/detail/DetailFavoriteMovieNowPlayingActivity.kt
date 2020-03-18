@@ -40,6 +40,8 @@ class DetailFavoriteMovieNowPlayingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_movie)
 
+        shimmer.startShimmer()
+
         viewModelFavorite = obtainFavoriteViewModel(this)
 
         viewModelMovie = ViewModelProviders.of(this).get(DetailMovieViewModel::class.java)
@@ -108,6 +110,9 @@ class DetailFavoriteMovieNowPlayingActivity : AppCompatActivity() {
         if (movieItems != null) {
             movieAdapter?.updateMovie(movieItems as List<ResultsItemMovie>)
             progressBarSimilar.visibility = View.INVISIBLE
+            shimmer.stopShimmer()
+            shimmer.visibility = View.GONE
+            constrain_DetailMovie.visibility = View.VISIBLE
 
         }
     }

@@ -37,6 +37,8 @@ class DetailMovieUpcomingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_movie)
 
+        shimmer.startShimmer()
+
         viewModelFavorite = obtainFavoriteViewModel(this)
 
         viewModelMovie = ViewModelProviders.of(this).get(DetailMovieViewModel::class.java)
@@ -105,6 +107,12 @@ class DetailMovieUpcomingActivity : AppCompatActivity() {
         if (movieItems != null) {
             movieAdapter?.updateMovie(movieItems as List<ResultsItemMovie>)
             progressBarSimilar.visibility = View.INVISIBLE
+            shimmer.stopShimmer()
+            shimmer.visibility = View.GONE
+            constrain_DetailMovie.visibility = View.VISIBLE
+
+        } else {
+            text_empty.visibility = View.VISIBLE
 
         }
     }
@@ -119,7 +127,10 @@ class DetailMovieUpcomingActivity : AppCompatActivity() {
     private fun loadSimilarMovie() {
         val movie = intent.getParcelableExtra(EXTRA_MOVIE) as ResultsItemMovie
 
-        progressBarSimilar.visibility = View.VISIBLE
+        if (movie.id?.let { viewModelMovie?.getAllSimilarMovie(it) } == null) {
+            text_empty.visibility = View.VISIBLE
+
+        }
 
         movie.id?.let { viewModelMovie?.getAllSimilarMovie(it) }
         viewModelMovie?.resultItemSimilar?.observe(this, getResultItemSimilarMovie)

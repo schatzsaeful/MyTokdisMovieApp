@@ -1,12 +1,15 @@
 package com.example.mytokdismovieapp.ui.movie.movie_now_playing
 
+import android.graphics.ColorFilter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -69,30 +72,50 @@ class MovieNowPlayingFragment: Fragment() {
             MovieNowPlayingAdapter(
                 ArrayList(0),
                 ArrayList(0)
-            ) {
+            ) { resultsItemMovie: ResultsItemMovie, imageView: ImageView ->
 
-                val movieId: Int? = it.id
-                val moviePoster: String? = it.posterPath
-                val movieTitle: String? = it.title
-                val movieRelease: Date? = it.releaseDate
-                val movieVoteAverage: Double? = it.voteAverage
-                val movieVoteCount: Int? = it.voteCount
-                val movieOverview: String? = it.overview
-                val movieGenre: List<Int>? = it.genreIds
+                val movieId: Int? = resultsItemMovie.id
+                val moviePoster: String? = resultsItemMovie.posterPath
+                val movieTitle: String? = resultsItemMovie.title
+                val movieRelease: Date? = resultsItemMovie.releaseDate
+                val movieVoteAverage: Double? = resultsItemMovie.voteAverage
+                val movieVoteCount: Int? = resultsItemMovie.voteCount
+                val movieOverview: String? = resultsItemMovie.overview
+                val movieGenre: List<Int>? = resultsItemMovie.genreIds
 
-                movieNowPlayingEntity.movieNowPlayingId = movieId
-                movieNowPlayingEntity.movieNowPlayingPoster = moviePoster
-                movieNowPlayingEntity.movieNowPlayingTitle = movieTitle
-                movieNowPlayingEntity.movieNowPlayingRelease =
-                    movieRelease?.let { it1 -> DateHelper.formatDateToMatch(it1) }
-                movieNowPlayingEntity.movieNowPlayingVoteAverage = movieVoteAverage
-                movieNowPlayingEntity.movieNowPlayingVoteCount = movieVoteCount
-                movieNowPlayingEntity.movieNowPlayingOverview = movieOverview
-                movieNowPlayingEntity.movieNowPlayingGenre = movieGenre.toString()
+                if (movieNowPlayingEntity.movieNowIsFavorite == true) {
+                    imageView.setColorFilter(ContextCompat.getColor(requireActivity(), R.color.colorAccentDisable))
+                    movieNowPlayingEntity.movieNowPlayingId = movieId
+                    movieNowPlayingEntity.movieNowPlayingPoster = moviePoster
+                    movieNowPlayingEntity.movieNowPlayingTitle = movieTitle
+                    movieNowPlayingEntity.movieNowPlayingRelease =
+                        movieRelease?.let { it1 -> DateHelper.formatDateToMatch(it1) }
+                    movieNowPlayingEntity.movieNowPlayingVoteAverage = movieVoteAverage
+                    movieNowPlayingEntity.movieNowPlayingVoteCount = movieVoteCount
+                    movieNowPlayingEntity.movieNowPlayingOverview = movieOverview
+                    movieNowPlayingEntity.movieNowPlayingGenre = movieGenre.toString()
+                    movieNowPlayingEntity.movieNowIsFavorite = false
+                    viewModelFavorite?.deleteMovieNowPlaying(movieNowPlayingEntity)
 
-                viewModelFavorite?.insertMovieNowPlaying(movieNowPlayingEntity)
+                    Toast.makeText(context, "Delete to Favorite : " + resultsItemMovie.title, Toast.LENGTH_SHORT).show()
 
-                Toast.makeText(context, "Add to Favorite : " + it.title, Toast.LENGTH_SHORT).show()
+                } else {
+                    imageView.setColorFilter(ContextCompat.getColor(requireActivity(), R.color.colorAccent))
+                    movieNowPlayingEntity.movieNowPlayingId = movieId
+                    movieNowPlayingEntity.movieNowPlayingPoster = moviePoster
+                    movieNowPlayingEntity.movieNowPlayingTitle = movieTitle
+                    movieNowPlayingEntity.movieNowPlayingRelease =
+                        movieRelease?.let { it1 -> DateHelper.formatDateToMatch(it1) }
+                    movieNowPlayingEntity.movieNowPlayingVoteAverage = movieVoteAverage
+                    movieNowPlayingEntity.movieNowPlayingVoteCount = movieVoteCount
+                    movieNowPlayingEntity.movieNowPlayingOverview = movieOverview
+                    movieNowPlayingEntity.movieNowPlayingGenre = movieGenre.toString()
+                    movieNowPlayingEntity.movieNowIsFavorite = true
+                    viewModelFavorite?.insertMovieNowPlaying(movieNowPlayingEntity)
+
+                    Toast.makeText(context, "Add to Favorite : " + resultsItemMovie.title, Toast.LENGTH_SHORT).show()
+
+                }
             }
     }
 

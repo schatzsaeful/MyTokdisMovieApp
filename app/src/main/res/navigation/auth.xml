@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_auth"
+    app:startDestination="@+id/login_fragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.mytokdismovieapp.ui.login.LoginFragment"
+        android:label="Auth Login Fragment"
+        tools:layout="@layout/login_fragment" />
+
+    <fragment
+        android:id="@+id/forgot_fragment"
+        android:name="com.example.mytokdismovieapp.ui.forget.ForgetFragment"
+        android:label="Forgot Password Fragment"
+        tools:layout="@layout/forget_fragment" />
+
+    <fragment
+        android:id="@+id/register_fragment"
+        android:name="com.example.mytokdismovieapp.ui.register.RegisterFragment"
+        android:label="OTP Fragment"
+        tools:layout="@layout/register_fragment" />
+
+    <fragment
+        android:id="@+id/activating_fragment"
+        android:name="com.example.mytokdismovieapp.ui.activating.ActivatingFragment"
+        android:label="Activating Account Fragment"
+        tools:layout="@layout/activating_fragment"/>
+
+</navigation>

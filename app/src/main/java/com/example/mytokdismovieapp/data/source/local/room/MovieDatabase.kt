@@ -4,10 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.mytokdismovieapp.data.source.local.entity.MovieNowPlayingEntity
-import com.example.mytokdismovieapp.data.source.local.entity.MoviePopularEntity
-import com.example.mytokdismovieapp.data.source.local.entity.MovieTopRatedEntity
-import com.example.mytokdismovieapp.data.source.local.entity.MovieUpcomingEntity
+import com.example.mytokdismovieapp.data.source.local.entity.*
 
 @Database(entities = [MoviePopularEntity::class, MovieTopRatedEntity::class, MovieUpcomingEntity::class, MovieNowPlayingEntity::class], version = 3)
 abstract class MovieDatabase : RoomDatabase() {

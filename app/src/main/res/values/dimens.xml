@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Dimens for margin n' padding -->
+    <dimen name="dimens_0dp">0dp</dimen>
+    <dimen name="dimens_2dp">2dp</dimen>
+    <dimen name="dimens_4dp">4dp</dimen>
+    <dimen name="dimens_6dp">6dp</dimen>
+    <dimen name="dimens_8dp">8dp</dimen>
+    <dimen name="dimens_10dp">10dp</dimen>
+    <dimen name="dimens_12dp">12dp</dimen>
+    <dimen name="dimens_14dp">14dp</dimen>
+    <dimen name="dimens_16dp">16dp</dimen>
+    <dimen name="dimens_18dp">18dp</dimen>
+    <dimen name="dimens_20dp">20dp</dimen>
+    <dimen name="dimens_24dp">24dp</dimen>
+    <dimen name="dimens_26dp">26dp</dimen>
+    <dimen name="dimens_28dp">28dp</dimen>
+    <dimen name="dimens_32dp">32dp</dimen>
+    <dimen name="dimens_36dp">36dp</dimen>
+    <dimen name="dimens_40dp">40dp</dimen>
+    <dimen name="dimens_44dp">44dp</dimen>
+    <dimen name="dimens_48dp">48dp</dimen>
+    <dimen name="dimens_56dp">56dp</dimen>
+    <dimen name="dimens_64dp">64dp</dimen>
+    <dimen name="dimens_72dp">72dp</dimen>
+    <dimen name="dimens_80dp">80dp</dimen>
+    <dimen name="dimens_83dp">83dp</dimen>
+    <dimen name="dimens_88dp">88dp</dimen>
+    <dimen name="dimens_96dp">96dp</dimen>
+    <dimen name="dimens_104dp">104dp</dimen>
+    <dimen name="dimens_112dp">112dp</dimen>
+    <dimen name="dimens_128dp">128dp</dimen>
+    <dimen name="dimens_140dp">140dp</dimen>
+    <dimen name="dimens_144dp">144dp</dimen>
+    <dimen name="dimens_160dp">160dp</dimen>
+    <dimen name="dimens_170dp">170dp</dimen>
+    <dimen name="dimens_180dp">180dp</dimen>
+    <dimen name="dimens_185dp">185dp</dimen>
+    <dimen name="dimens_192dp">192dp</dimen>
+    <dimen name="dimens_200dp">200dp</dimen>
+    <dimen name="dimens_216dp">216dp</dimen>
+    <dimen name="dimens_232dp">232dp</dimen>
+    <dimen name="dimens_250dp">250dp</dimen>
+    <dimen name="dimens_400dp">400dp</dimen>
+
+    <!-- Dimens for text size -->
+    <dimen name="size_5sp">5sp</dimen>
+    <dimen name="size_6sp">6sp</dimen>
+    <dimen name="size_8sp">8sp</dimen>
+    <dimen name="size_10sp">10sp</dimen>
+    <dimen name="size_12sp">12sp</dimen>
+    <dimen name="size_14sp">14sp</dimen>
+    <dimen name="size_16sp">16sp</dimen>
+    <dimen name="size_18sp">18sp</dimen>
+    <dimen name="size_24sp">24sp</dimen>
+    <dimen name="size_28sp">28sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="appbar_padding">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- for custom bottom navigation text size -->
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">@dimen/size_10sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">
+        11sp
+    </dimen>
+    <dimen name="dimens_1dp">1dp</dimen>
+    <dimen name="size_32sp">32sp</dimen>
+    <dimen name="dimens_60dp">60dp</dimen>
+
+    <item name="dialog_min_width_major" type="dimen">65%</item>
+    <item name="dialog_min_width_minor" type="dimen">95%</item>
+</resources>

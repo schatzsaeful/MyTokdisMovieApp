@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.core.view.isEmpty
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -37,6 +38,8 @@ class DetailMovieNowPlayingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_movie)
+
+        shimmer.startShimmer()
 
         viewModelFavorite = obtainFavoriteViewModel(this)
 
@@ -108,6 +111,9 @@ class DetailMovieNowPlayingActivity : AppCompatActivity() {
         if (movieItems != null) {
             movieAdapter?.updateMovie(movieItems as List<ResultsItemMovie>)
             progressBarSimilar.visibility = View.INVISIBLE
+            shimmer.stopShimmer()
+            shimmer.visibility = View.GONE
+            constrain_DetailMovie.visibility = View.VISIBLE
 
         }
     }
@@ -126,6 +132,7 @@ class DetailMovieNowPlayingActivity : AppCompatActivity() {
 
         movie.id?.let { viewModelMovie?.getAllSimilarMovie(it) }
         viewModelMovie?.resultItemSimilar?.observe(this, getResultItemSimilarMovie)
+
     }
 
     private fun loadGenre() {
@@ -138,6 +145,14 @@ class DetailMovieNowPlayingActivity : AppCompatActivity() {
         recyclerSimilar.layoutManager = layoutManager
         recyclerSimilar.adapter = movieAdapter
         recyclerSimilar.setHasFixedSize(true)
+
+        if (movieAdapter?.itemCount == 0) {
+            text_empty.visibility = View.VISIBLE
+
+        } else {
+            text_empty.visibility = View.GONE
+
+        }
 
     }
 

@@ -6,6 +6,7 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +19,7 @@ import com.example.mytokdismovieapp.ui.detail.DetailMovieNowPlayingActivity
 import com.example.mytokdismovieapp.utils.DateHelper
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MovieNowPlayingAdapter(private var resultsItemMovie: MutableList<ResultsItemMovie>, private val resultItemGenre: MutableList<ResultsItemGenre>, private val listener: (ResultsItemMovie) -> Unit) : PagedListAdapter<ResultsItemMovie, MovieNowPlayingAdapter.MovieViewHolder>(DIFF_CALLBACK) {
+class MovieNowPlayingAdapter(private var resultsItemMovie: MutableList<ResultsItemMovie>, private val resultItemGenre: MutableList<ResultsItemGenre>, private val listener: (ResultsItemMovie, ImageView) -> Unit) : PagedListAdapter<ResultsItemMovie, MovieNowPlayingAdapter.MovieViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         return MovieViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false))
@@ -32,7 +33,7 @@ class MovieNowPlayingAdapter(private var resultsItemMovie: MutableList<ResultsIt
     }
 
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(resultMovie: ResultsItemMovie, listener: (ResultsItemMovie) -> Unit) {
+        fun bind(resultMovie: ResultsItemMovie, listener: (ResultsItemMovie, ImageView) -> Unit) {
 
             Glide.with(itemView.context)
                 .load(BuildConfig.POSTER_URL + resultMovie.posterPath)
@@ -54,7 +55,7 @@ class MovieNowPlayingAdapter(private var resultsItemMovie: MutableList<ResultsIt
             }
 
             itemView.imageFavorite.setOnClickListener {
-                listener(resultMovie)
+                listener(resultMovie, itemView.imageFavorite.findViewById(R.id.imageFavorite))
             }
 
         }
