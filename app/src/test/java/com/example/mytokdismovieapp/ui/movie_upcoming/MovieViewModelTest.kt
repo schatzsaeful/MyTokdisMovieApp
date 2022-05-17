@@ -1,3 +1,0 @@
-package com.example.mytokdismovieapp.ui.movie_upcoming
-
-class MovieViewModelTest

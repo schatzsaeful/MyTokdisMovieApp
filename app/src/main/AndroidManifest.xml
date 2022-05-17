@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.mytokdismovieapp">
+    package="com.example.moviecatalogue">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,26 +15,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.auth.AuthActivity" />
-        <activity android:name=".ui.detail.DetailMovieTopRatedActivity" />
-        <activity android:name=".ui.detail.DetailMoviePopularActivity" />
-        <activity android:name=".ui.detail.DetailMovieNowPlayingActivity" />
-        <activity android:name=".ui.favorite.detail.DetailFavoriteMovieTopRatedActivity" />
-        <activity android:name=".ui.favorite.detail.DetailFavoriteMoviePopularActivity" />
-        <activity android:name=".ui.favorite.detail.DetailFavoriteMovieNowPlayingActivity" />
-        <activity android:name=".ui.favorite.detail.DetailFavoriteMovieUpcomingActivity" />
-        <activity android:name=".ui.favorite.FavoriteActivity" />
-        <activity android:name=".ui.splash.SplashActivity">
+        <activity android:name="com.example.moviecatalogue.ui.detail.DetailMovieTopRatedActivity" />
+        <activity android:name="com.example.moviecatalogue.ui.detail.DetailMoviePopularActivity" />
+        <activity android:name="com.example.moviecatalogue.ui.detail.DetailMovieNowPlayingActivity" />
+        <activity android:name="com.example.moviecatalogue.ui.favorite.detail.DetailFavoriteMovieTopRatedActivity" />
+        <activity android:name="com.example.moviecatalogue.ui.favorite.detail.DetailFavoriteMoviePopularActivity" />
+        <activity android:name="com.example.moviecatalogue.ui.favorite.detail.DetailFavoriteMovieNowPlayingActivity" />
+        <activity android:name="com.example.moviecatalogue.ui.favorite.detail.DetailFavoriteMovieUpcomingActivity" />
+        <activity android:name="com.example.moviecatalogue.ui.favorite.FavoriteActivity" />
+        <activity android:name="com.example.moviecatalogue.ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.home.HomeActivity" />
-        <activity android:name=".ui.detail.DetailMovieUpcomingActivity" />
+        <activity android:name="com.example.moviecatalogue.ui.home.HomeActivity" />
+        <activity android:name="com.example.moviecatalogue.ui.detail.DetailMovieUpcomingActivity" />
         <receiver
-            android:name=".utils.ConnectivityReceiver"
+            android:name="com.example.moviecatalogue.utils.ConnectivityReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"

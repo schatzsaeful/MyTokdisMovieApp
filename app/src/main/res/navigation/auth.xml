@@ -8,25 +8,25 @@
 
     <fragment
         android:id="@+id/login_fragment"
-        android:name="com.example.mytokdismovieapp.ui.login.LoginFragment"
+        android:name="com.example.moviecatalogue.ui.login.LoginFragment"
         android:label="Auth Login Fragment"
         tools:layout="@layout/login_fragment" />
 
     <fragment
         android:id="@+id/forgot_fragment"
-        android:name="com.example.mytokdismovieapp.ui.forget.ForgetFragment"
+        android:name="com.example.moviecatalogue.ui.forget.ForgetFragment"
         android:label="Forgot Password Fragment"
         tools:layout="@layout/forget_fragment" />
 
     <fragment
         android:id="@+id/register_fragment"
-        android:name="com.example.mytokdismovieapp.ui.register.RegisterFragment"
+        android:name="com.example.moviecatalogue.ui.register.RegisterFragment"
         android:label="OTP Fragment"
         tools:layout="@layout/register_fragment" />
 
     <fragment
         android:id="@+id/activating_fragment"
-        android:name="com.example.mytokdismovieapp.ui.activating.ActivatingFragment"
+        android:name="com.example.moviecatalogue.ui.activating.ActivatingFragment"
         android:label="Activating Account Fragment"
         tools:layout="@layout/activating_fragment"/>
 

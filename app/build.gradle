@@ -10,7 +10,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.example.mytokdismovieapp"
+        applicationId "com.example.moviecatalogue"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
@@ -20,7 +20,7 @@ android {
         // TMDB API
         buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
         buildConfigField "String", "POSTER_URL", "\"https://image.tmdb.org/t/p/w185/\""
-        buildConfigField "String", "API_KEY", "\"da5d5b9f3935cf7d03135e6d4576a57f\""
+        buildConfigField "String", "API_KEY", "\"a27fdf1f8177dd67f65aa6380f10ff8d\""
 
     }
 
